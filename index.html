@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Display Refresh Rate Analyzer - Monitor Hz & Frame Time Testing Tool</title>
+    <meta name="description" content="Free online tool to analyze your display's refresh rate, frame timing, and animation performance. Test monitor Hz, measure frame times, and visualize refresh rates.">
+    <meta name="keywords" content="refresh rate, monitor hz, display analyzer, frame time, screen test, animation performance, display testing tool, monitor refresh rate, fps test">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://refresh-rate-visualizer.vercel.app/">
+    <meta property="og:title" content="Display Refresh Rate Analyzer - Test Your Monitor's Performance">
+    <meta property="og:description" content="Free tool to test your monitor's refresh rate, frame timing, and animation performance. Get detailed analysis of your display's capabilities.">
+    <meta property="og:image" content="https://refresh-rate-visualizer.vercel.app/preview.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://refresh-rate-visualizer.vercel.app/">
+    <meta property="twitter:title" content="Display Refresh Rate Analyzer - Monitor Testing Tool">
+    <meta property="twitter:description" content="Analyze your display's refresh rate, frame timing, and animation performance with our free testing tool.">
+    <meta property="twitter:image" content="https://refresh-rate-visualizer.vercel.app/preview.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://refresh-rate-visualizer.vercel.app/">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Display Refresh Rate Analyzer",
+        "description": "A web-based tool for analyzing display refresh rates, frame timing, and animation performance",
+        "url": "https://refresh-rate-visualizer.vercel.app/",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Monitor refresh rate detection",
+            "Frame timing analysis",
+            "Animation performance testing",
+            "Input latency measurement",
+            "Frame consistency scoring"
+        ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-light: #818CF8;
+            --primary-dark: #3730A3;
+            --secondary: #10B981;
+            --secondary-light: #34D399;
+            --background: #F8FAFC;
+            --card: #FFFFFF;
+            --text: #1F2937;
+            --text-light: #6B7280;
+            --danger: #EF4444;
+            --warning: #F59E0B;
+            --success: #10B981;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background: #0F172A;
+                --card: #1E293B;
+                --text: #F1F5F9;
+                --text-light: #94A3B8;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, rgba(255,255,255,0.8));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-card {
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 1rem 0;
+            font-feature-settings: "tnum";
+            font-variant-numeric: tabular-nums;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-description {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 1rem;
+        }
+
+        .visualization-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .viz-card {
+            background: var(--card);
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .animation-stage {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(to bottom, 
+                transparent, 
+                rgba(79, 70, 229, 0.05) 20%,
+                rgba(79, 70, 229, 0.1) 50%,
+                rgba(79, 70, 229, 0.05) 80%,
+                transparent
+            );
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .moving-object {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        button {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .performance-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .metric-card {
+            background: var(--card);
+            padding: 1rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 0.5rem 0;
+        }
+
+        .quality-indicator {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .quality-excellent {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+
+        .quality-good {
+            background-color: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+        }
+
+        .quality-poor {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0.5rem;
+            }
+            
+            .header {
+                padding: 1.5rem 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .grid {
+                gap: 1rem;
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+
+            .controls {
+                flex-direction: column;
+                padding: 0 1rem;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+        }
+
+        .tooltip:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0.5rem 1rem;
+            background: var(--card);
+            color: var(--text);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .faq {
+            margin: 4rem 0;
+            padding: 2rem;
+            background: var(--card);
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq h2 {
+            color: var(--primary);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-item h3 {
+            color: var(--text);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .faq-item p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        footer {
+            margin-top: 4rem;
+            padding: 2rem;
+            text-align: center;
+            background: var(--card);
+            border-radius: 20px;
+            color: var(--text-light);
+        }
+
+        footer p:first-child {
+            font-weight: bold;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        /* SEO-friendly focus styles */
+        a:focus,
+        button:focus {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        /* Skip to main content for accessibility */
+        .skip-to-main {
+            position: absolute;
+            left: -9999px;
+            z-index: 999;
+            padding: 1em;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+        }
+
+        .skip-to-main:focus {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Rich snippets styling */
+        [itemprop="author"],
+        [itemprop="datePublished"],
+        [itemprop="description"] {
+            display: none;
+        }
+
+        /* Structured data additional styling */
+        .metric-card[itemscope] {
+            position: relative;
+        }
+
+        .metric-card[itemscope]::before {
+            content: attr(data-metric);
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Print styles for better SEO */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .animation-stage,
+            .controls {
+                display: none;
+            }
+
+            .card,
+            .metric-card,
+            .faq-item {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <header class="header">
+            <h1>Display Refresh Rate Analyzer</h1>
+            <p>Professional tool for analyzing and visualizing your display's performance metrics</p>
+        </header>
+
+        <section class="grid" aria-label="Display Metrics">
+            <article class="card stat-card">
+                <h2 class="stat-label">Refresh Rate</h2>
+                <div class="stat-value" id="refreshRate">Detecting...</div>
+                <div class="quality-indicator" id="refreshRateQuality"></div>
+                <p class="stat-description">Your display's current refresh rate</p>
+            </article>
+
+            <article class="card stat-card">
+                <h2 class="stat-label">Frame Time</h2>
+                <div class="stat-value" id="frameTimeInfo">Calculating...</div>
+                <div class="quality-indicator" id="frameTimeQuality"></div>
+                <p class="stat-description">Time between each frame</p>
+            </article>
+
+            <article class="card stat-card">
+                <h2 class="stat-label">Frame Consistency</h2>
+                <div class="stat-value" id="frameConsistency">Measuring...</div>
+                <div class="quality-indicator" id="consistencyQuality"></div>
+                <p class="stat-description">Stability of frame delivery</p>
+            </article>
+        </section>
+
+        <section class="controls" aria-label="Animation Controls">
+            <button onclick="toggleAnimation()" id="toggleBtn" aria-label="Toggle Animation">Pause Animation</button>
+            <button onclick="switchSpeed()" id="speedBtn" aria-label="Change Animation Speed">Increase Speed</button>
+            <button onclick="toggleMotionType()" id="motionBtn" aria-label="Change Motion Type">Switch Motion Type</button>
+        </section>
+
+        <section class="visualization-container" aria-label="Animation Comparison">
+            <article class="viz-card">
+                <h2>Standard Animation (60 FPS)</h2>
+                <div class="animation-stage" role="img" aria-label="Standard 60 FPS Animation">
+                    <div id="standardBox" class="moving-object"></div>
+                </div>
+                <p class="stat-description">Fixed 60 FPS animation pattern</p>
+            </article>
+
+            <article class="viz-card">
+                <h2>Optimized Animation</h2>
+                <div class="animation-stage" role="img" aria-label="Refresh Rate Optimized Animation">
+                    <div id="smoothBox" class="moving-object"></div>
+                </div>
+                <p class="stat-description">Refresh rate optimized animation</p>
+            </article>
+        </section>
+
+        <section class="performance-metrics" aria-label="Performance Metrics">
+            <article class="metric-card">
+                <h2 class="stat-label tooltip" data-tooltip="Lower is better">Input Latency</h2>
+                <div class="metric-value" id="inputLatency">Measuring...</div>
+            </article>
+            <article class="metric-card">
+                <h2 class="stat-label tooltip" data-tooltip="Higher is better">Animation Smoothness</h2>
+                <div class="metric-value" id="animationSmoothness">Calculating...</div>
+            </article>
+            <article class="metric-card">
+                <h2 class="stat-label tooltip" data-tooltip="Percentage of frames hitting target">Frame Timing</h2>
+                <div class="metric-value" id="frameTimingScore">Analyzing...</div>
+            </article>
+        </section>
+
+        <section class="faq" aria-label="Frequently Asked Questions">
+            <h2>Frequently Asked Questions</h2>
+            <article class="faq-item">
+                <h3>What is refresh rate?</h3>
+                <p>Refresh rate, measured in Hertz (Hz), is the number of times your display updates per second. A higher refresh rate results in smoother motion and better responsiveness.</p>
+            </article>
+            <article class="faq-item">
+                <h3>How accurate is this tool?</h3>
+                <p>This tool uses multiple detection methods and statistical analysis to provide highly accurate measurements of your display's performance characteristics.</p>
+            </article>
+            <article class="faq-item">
+                <h3>What is frame time?</h3>
+                <p>Frame time is the duration between each frame update, measured in milliseconds. Lower frame times indicate better performance and smoother animations.</p>
+            </article>
+        </section>
+
+        <footer>
+            <p>Display Refresh Rate Analyzer - Free Online Monitor Testing Tool</p>
+            <p>Test your monitor's refresh rate, frame timing, and animation performance</p>
+        </footer>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

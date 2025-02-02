@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+Sitemap: https://refresh-rate-visualizer.vercel.app/sitemap.xml
+
+# Allow all search engines to crawl
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Optimize crawl rate
+Crawl-delay: 1
