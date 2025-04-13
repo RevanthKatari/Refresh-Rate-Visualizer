@@ -72,4 +72,4 @@ This project is open-source and available under the [MIT License](LICENSE).
 
 ## Contact
 
-If you have any questions or need help with the tool, feel free to reach out at [contact@refresh-rate-visualizer.com](mailto:contact@refresh-rate-visualizer.com).
+If you have any questions or need help with the tool, feel free to reach out at [revanthkatari06@gmail.com](mailto:revanthkatari06@gmail.com).
