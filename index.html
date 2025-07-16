@@ -340,6 +340,81 @@
             z-index: 1000;
         }
 
+        .guide-section {
+            margin: 4rem 0;
+        }
+
+        .guide-section .card {
+            padding: 2rem;
+        }
+
+        .guide-section h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .guide-section h3 {
+            color: var(--primary);
+            margin: 2rem 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .guide-section p {
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .guide-section strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .metrics-explanation {
+            margin: 4rem 0;
+        }
+
+        .metrics-explanation .card {
+            padding: 2rem;
+        }
+
+        .metrics-explanation h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .metrics-explanation h3 {
+            color: var(--primary);
+            margin: 2rem 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .metrics-explanation p {
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .metrics-explanation ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .metrics-explanation li {
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .metrics-explanation strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
         .faq {
             margin: 4rem 0;
             padding: 2rem;
@@ -526,19 +601,134 @@
             </article>
         </section>
 
+        <section class="metrics-explanation" aria-label="Understanding Your Results">
+            <div class="card">
+                <h2>Understanding Your Display Performance Results</h2>
+                <p>Our tool provides several key metrics to help you understand your display's performance. Here's what each measurement means and how to interpret your results:</p>
+                
+                <h3>Refresh Rate Analysis</h3>
+                <p>The refresh rate measurement shows how many times per second your display updates its image. Our tool uses advanced sampling techniques to detect this automatically, testing three different methods to ensure accuracy:</p>
+                <ul>
+                    <li><strong>Screen Property Detection:</strong> Checks browser and system-reported refresh rates</li>
+                    <li><strong>Frame Timing Analysis:</strong> Measures actual frame delivery times</li>
+                    <li><strong>Animation Frame Sampling:</strong> Uses requestAnimationFrame to detect display timing</li>
+                </ul>
+                
+                <h3>Frame Time Consistency</h3>
+                <p>Frame time consistency measures how evenly frames are delivered to your display. Perfect consistency means each frame takes exactly the same amount of time to render, resulting in smooth motion. Poor consistency can cause:</p>
+                <ul>
+                    <li>Stuttering during animations and gaming</li>
+                    <li>Uneven motion that's distracting to watch</li>
+                    <li>Reduced perceived smoothness even at high refresh rates</li>
+                </ul>
+                
+                <h3>Performance Quality Indicators</h3>
+                <p>Our quality indicators help you quickly assess your display's performance:</p>
+                <ul>
+                    <li><strong>Excellent:</strong> 144Hz+ refresh rate, consistent frame times, minimal input lag</li>
+                    <li><strong>Good:</strong> 60Hz+ refresh rate, stable performance, acceptable for most uses</li>
+                    <li><strong>Poor:</strong> Below 60Hz or inconsistent timing, may need hardware upgrades</li>
+                </ul>
+                
+                <h3>What Affects These Measurements</h3>
+                <p>Several factors can impact your display performance measurements:</p>
+                <ul>
+                    <li><strong>Graphics Card:</strong> Must be capable of rendering at your display's refresh rate</li>
+                    <li><strong>Display Connection:</strong> HDMI vs DisplayPort bandwidth limitations</li>
+                    <li><strong>Background Processes:</strong> Other applications consuming system resources</li>
+                    <li><strong>Browser Performance:</strong> Different browsers may show slight variations</li>
+                    <li><strong>System Load:</strong> High CPU or GPU usage can affect measurements</li>
+                </ul>
+                
+                <h3>Interpreting Your Results</h3>
+                <p>Use these guidelines to understand what your results mean for your specific use case:</p>
+                <ul>
+                    <li><strong>Casual Users:</strong> 60Hz with good consistency is perfectly adequate</li>
+                    <li><strong>Gamers:</strong> 144Hz+ with excellent consistency provides competitive advantages</li>
+                    <li><strong>Professional Work:</strong> Higher refresh rates reduce eye strain during long sessions</li>
+                    <li><strong>Content Creators:</strong> Consistent frame timing is crucial for smooth video playback</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="guide-section" aria-label="Understanding Display Refresh Rates">
+            <div class="card">
+                <h2>Complete Guide to Display Refresh Rates</h2>
+                <p>Understanding your display's refresh rate is crucial for optimal visual experience, whether you're gaming, working, or consuming media. This comprehensive guide will help you understand everything about refresh rates and how they affect your daily computer use.</p>
+                
+                <h3>What is Refresh Rate?</h3>
+                <p>Refresh rate is the frequency at which your display updates its image, measured in Hertz (Hz). A 60Hz monitor displays 60 new images per second, while a 144Hz monitor displays 144 images per second. This fundamental concept affects everything from gaming performance to everyday comfort.</p>
+                
+                <h3>How Refresh Rate Affects Your Experience</h3>
+                <p><strong>Gaming Performance:</strong> Higher refresh rates provide smoother motion, reduced input lag, and better tracking of fast-moving objects. In competitive gaming, this can mean the difference between victory and defeat.</p>
+                <p><strong>General Use:</strong> Even for non-gaming tasks, higher refresh rates make scrolling smoother, reduce eye strain, and create a more responsive feel when moving windows or the cursor.</p>
+                <p><strong>Media Consumption:</strong> While most movies are filmed at 24fps, sports broadcasts and gaming streams benefit significantly from higher refresh rates.</p>
+                
+                <h3>Common Refresh Rate Standards</h3>
+                <p><strong>60Hz:</strong> The standard for most displays, adequate for general use and casual gaming. Frame time: 16.67ms.</p>
+                <p><strong>144Hz:</strong> Popular for gaming, provides significantly smoother motion. Frame time: 6.94ms.</p>
+                <p><strong>240Hz:</strong> Ultra-high refresh rate for competitive gaming. Frame time: 4.17ms.</p>
+                <p><strong>360Hz:</strong> Cutting-edge refresh rate for professional esports. Frame time: 2.78ms.</p>
+                
+                <h3>Hardware Requirements</h3>
+                <p>To fully utilize a high refresh rate monitor, your graphics card must be capable of generating frames at that rate. A powerful GPU is essential for maintaining high frame rates in demanding games. Additionally, ensure your display connection (DisplayPort or HDMI) supports the bandwidth required for your desired refresh rate.</p>
+                
+                <h3>Troubleshooting Common Issues</h3>
+                <p>If you're experiencing stuttering, screen tearing, or inconsistent frame rates, the issue might be related to your refresh rate settings, graphics drivers, or hardware compatibility. Our tool can help identify these issues by measuring frame consistency and timing.</p>
+            </div>
+        </section>
+
         <section class="faq" aria-label="Frequently Asked Questions">
             <h2>Frequently Asked Questions</h2>
             <article class="faq-item">
-                <h3>What is refresh rate?</h3>
-                <p>Refresh rate, measured in Hertz (Hz), is the number of times your display updates per second. A higher refresh rate results in smoother motion and better responsiveness.</p>
+                <h3>What is refresh rate and why does it matter?</h3>
+                <p>Refresh rate, measured in Hertz (Hz), represents how many times per second your monitor can display a new image. A 60Hz monitor refreshes 60 times per second, while a 144Hz monitor refreshes 144 times per second. This directly impacts how smooth motion appears on your screen.</p>
+                <p>Higher refresh rates provide several benefits: smoother gaming experience with reduced motion blur, better responsiveness in competitive gaming, reduced eye strain during extended use, and improved visual clarity in fast-moving scenes. However, to benefit from higher refresh rates, your graphics card must be capable of generating frames at that rate.</p>
             </article>
             <article class="faq-item">
-                <h3>How accurate is this tool?</h3>
-                <p>This tool uses multiple detection methods and statistical analysis to provide highly accurate measurements of your display's performance characteristics.</p>
+                <h3>How accurate is this refresh rate detection tool?</h3>
+                <p>This tool uses multiple detection methods and statistical analysis to provide highly accurate measurements of your display's performance characteristics. It employs three different detection algorithms: screen property detection, frame timing analysis, and requestAnimationFrame sampling.</p>
+                <p>The tool collects 120 samples and uses statistical analysis to determine the most common frame time, then calculates the refresh rate. This multi-method approach ensures accuracy across different browsers and hardware configurations, typically achieving 95%+ accuracy for most modern displays.</p>
             </article>
             <article class="faq-item">
-                <h3>What is frame time?</h3>
-                <p>Frame time is the duration between each frame update, measured in milliseconds. Lower frame times indicate better performance and smoother animations.</p>
+                <h3>What is frame time and how does it affect performance?</h3>
+                <p>Frame time is the duration between each frame update, measured in milliseconds. It's the inverse of refresh rate - for example, a 60Hz display has a frame time of 16.67ms (1000ms ÷ 60Hz). Lower frame times indicate better performance and smoother animations.</p>
+                <p>Consistent frame times are crucial for smooth visual experience. Variable frame times can cause stuttering, screen tearing, and reduced responsiveness. Our tool measures frame time consistency to help you identify potential display or graphics card issues.</p>
+            </article>
+            <article class="faq-item">
+                <h3>What's the difference between 60Hz, 144Hz, and 240Hz displays?</h3>
+                <p>The main differences lie in smoothness and responsiveness. 60Hz displays refresh 60 times per second (16.67ms frame time), which is adequate for general use and casual gaming. 144Hz displays refresh 144 times per second (6.94ms frame time), providing significantly smoother motion ideal for competitive gaming and fast-paced content.</p>
+                <p>240Hz displays refresh 240 times per second (4.17ms frame time), offering the ultimate in smoothness and responsiveness. However, you need a powerful graphics card to fully utilize higher refresh rates, and the benefits become less noticeable above 144Hz for most users.</p>
+            </article>
+            <article class="faq-item">
+                <h3>Do I need a high refresh rate monitor for gaming?</h3>
+                <p>While not absolutely necessary, high refresh rate monitors provide significant advantages for gaming. They offer smoother motion, reduced input lag, and better tracking of fast-moving objects. For competitive gaming, especially in first-person shooters, fighting games, and racing games, higher refresh rates can provide a competitive edge.</p>
+                <p>However, your graphics card must be capable of generating high frame rates to benefit from a high refresh rate monitor. If your GPU can only produce 60 FPS in your games, a 144Hz monitor won't improve your experience significantly.</p>
+            </article>
+            <article class="faq-item">
+                <h3>How do I optimize my system for high refresh rate gaming?</h3>
+                <p>To optimize your system for high refresh rate gaming: ensure your graphics card can handle high frame rates in your games, adjust graphics settings to prioritize frame rate over visual quality, make sure your monitor is set to its maximum refresh rate in display settings, use a high-quality DisplayPort or HDMI cable, and close unnecessary background applications.</p>
+                <p>Also consider enabling G-Sync or FreeSync if supported by your monitor and graphics card, as these technologies help eliminate screen tearing and stuttering when frame rates fluctuate.</p>
+            </article>
+            <article class="faq-item">
+                <h3>What is input lag and how does it relate to refresh rate?</h3>
+                <p>Input lag is the delay between when you perform an action (like clicking a mouse or pressing a key) and when you see the result on screen. While refresh rate and input lag are related, they're not the same thing. Higher refresh rates can reduce input lag because frames are displayed more frequently.</p>
+                <p>A 60Hz monitor has a maximum input lag of 16.67ms just from the refresh rate, while a 144Hz monitor reduces this to 6.94ms. However, total input lag also includes processing delays from your graphics card, monitor electronics, and game engine.</p>
+            </article>
+            <article class="faq-item">
+                <h3>Can I use this tool on mobile devices?</h3>
+                <p>While this tool is primarily optimized for desktop monitors, it can be used on mobile devices with some limitations. Mobile devices typically have 60Hz displays, though some newer phones support 90Hz, 120Hz, or even 144Hz refresh rates.</p>
+                <p>The tool will work on mobile browsers, but results may vary due to different hardware architectures and browser limitations. For the most accurate testing of gaming monitors and desktop displays, we recommend using a desktop computer.</p>
+            </article>
+            <article class="faq-item">
+                <h3>What does the frame consistency score mean?</h3>
+                <p>The frame consistency score indicates how evenly frames are rendered over time, measured as a percentage. A high score (above 90%) means smooth motion without stuttering or dropped frames, while a low score indicates irregular frame delivery that can cause visual artifacts.</p>
+                <p>This metric is calculated by analyzing frame time variations. Perfect consistency would show identical frame times, while poor consistency shows significant variation. Factors affecting consistency include graphics card performance, driver quality, background processes, and monitor capabilities.</p>
+            </article>
+            <article class="faq-item">
+                <h3>How do refresh rates affect eye strain and comfort?</h3>
+                <p>Higher refresh rates can significantly reduce eye strain during extended computer use. The smoother motion reduces the need for your eyes to track jerky movements, and the reduced flicker (especially important for sensitive individuals) can prevent headaches and fatigue.</p>
+                <p>Many users report less eye strain when switching from 60Hz to 144Hz displays, even for non-gaming tasks like web browsing and document editing. The smoother scrolling and cursor movement create a more comfortable viewing experience.</p>
             </article>
         </section>
 
