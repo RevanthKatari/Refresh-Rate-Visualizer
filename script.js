@@ -35,6 +35,19 @@ class RefreshRateAnalyzer {
         }, 5000);
     }
 
+    startContinuousAnalysis() {
+        this.isRunning = true;
+        this.startTime = performance.now();
+        this.samples = [];
+        this.frameCount = 0;
+        
+        // Start continuous measurement loop
+        this.continuousMeasureLoop();
+        
+        // Update display continuously
+        this.startContinuousDisplay();
+    }
+
     measureLoop() {
         if (!this.isRunning) return;
         
@@ -48,6 +61,47 @@ class RefreshRateAnalyzer {
         
         this.lastFrameTime = now;
         requestAnimationFrame(() => this.measureLoop());
+    }
+
+    continuousMeasureLoop() {
+        if (!this.isRunning) {
+            requestAnimationFrame(() => this.continuousMeasureLoop());
+            return;
+        }
+        
+        const now = performance.now();
+        const deltaTime = now - this.lastFrameTime;
+        
+        if (deltaTime > 0) {
+            this.samples.push(deltaTime);
+            this.frameCount++;
+            
+            // Keep only last 120 samples for rolling average
+            if (this.samples.length > 120) {
+                this.samples.shift();
+            }
+            
+            // Calculate and update results if we have enough samples
+            if (this.samples.length >= 10) {
+                this.calculateResults();
+            }
+        }
+        
+        this.lastFrameTime = now;
+        requestAnimationFrame(() => this.continuousMeasureLoop());
+    }
+
+    startContinuousDisplay() {
+        const updateDisplay = () => {
+            if (this.isRunning && this.samples.length >= 10) {
+                this.updateDisplay();
+            }
+            
+            // Update every 100ms for smooth real-time updates
+            setTimeout(updateDisplay, 100);
+        };
+        
+        updateDisplay();
     }
 
     stopTest() {
@@ -349,12 +403,11 @@ function exportResults() {
     analyzer.exportResults();
 }
 
-// Auto-start functionality
-function autoStartTest() {
-    // Wait a moment for page to fully load
-    setTimeout(() => {
-        analyzer.startTest();
-    }, 1000);
+// Real-time analysis functionality
+function startRealTimeAnalysis() {
+    // Start continuous testing immediately
+    analyzer.startContinuousAnalysis();
+    console.log('🔄 Real-time refresh rate analysis started');
 }
 
 // Initialize when page loads
@@ -364,7 +417,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Auto-start test if we're on the main page
     if (document.getElementById('refreshRate')) {
-        autoStartTest();
+        startRealTimeAnalysis();
     }
     
     // Add event listeners for manual controls

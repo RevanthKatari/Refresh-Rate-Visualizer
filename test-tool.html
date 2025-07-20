@@ -327,10 +327,10 @@
                 </div>
 
                 <div class="controls">
-                    <button class="btn btn-primary" onclick="startTest()" id="testBtn">Start Advanced Test</button>
-                    <button class="btn btn-primary" onclick="toggleAnimation()" id="animBtn">Toggle Animation</button>
+                    <button class="btn btn-primary" onclick="toggleAnimation()" id="animBtn">Pause Animation</button>
                     <button class="btn btn-primary" onclick="resetTest()" id="resetBtn">Reset Test</button>
                     <button class="btn btn-primary" onclick="exportResults()" id="exportBtn">Export Results</button>
+                    <button class="btn btn-primary" onclick="toggleAutoTest()" id="autoTestBtn">Auto-Testing: ON</button>
                 </div>
 
                 <div class="animation-container">
@@ -413,99 +413,147 @@
 
     <script>
         let isAnimating = true;
+        let autoTesting = true;
         let testResults = {};
         let frameTimeSamples = [];
         let lastFrameTime = performance.now();
+        let refreshRateSamples = [];
+        let frameTimingData = [];
+        let consistencyData = [];
+        let inputLatencyHistory = [];
+        let sampleCount = 0;
+        let testingStartTime = performance.now();
         
-        function startTest() {
-            document.getElementById('testBtn').textContent = 'Testing...';
-            frameTimeSamples = [];
-            testResults = {};
-            
-            // Start comprehensive testing
-            detectRefreshRate();
-            measureFrameTiming();
-            testInputLatency();
-            
-            setTimeout(() => {
-                document.getElementById('testBtn').textContent = 'Start Advanced Test';
-                displayResults();
-            }, 5000);
+        // Auto-start testing immediately
+        function initializeRealTimeTesting() {
+            startContinuousRefreshRateDetection();
+            startContinuousFrameTiming();
+            startContinuousLatencyMeasurement();
+            startContinuousResultsUpdate();
         }
         
-        function detectRefreshRate() {
-            let samples = [];
-            let startTime = performance.now();
-            
-            function sample() {
-                const now = performance.now();
-                const delta = now - lastFrameTime;
-                if (delta > 0 && samples.length < 120) {
-                    samples.push(delta);
-                }
-                lastFrameTime = now;
-                
-                if (samples.length < 120) {
-                    requestAnimationFrame(sample);
-                } else {
-                    // Calculate refresh rate from samples
-                    const avgFrameTime = samples.reduce((a, b) => a + b) / samples.length;
-                    const refreshRate = Math.round(1000 / avgFrameTime);
-                    
-                    document.getElementById('refreshRate').textContent = refreshRate + 'Hz';
-                    updateQualityIndicator('refreshRateQuality', refreshRate);
-                    
-                    testResults.refreshRate = refreshRate;
-                    testResults.avgFrameTime = avgFrameTime;
-                }
-            }
-            
-            requestAnimationFrame(sample);
-        }
-        
-        function measureFrameTiming() {
-            let frameTimes = [];
+        function startContinuousRefreshRateDetection() {
             let lastTime = performance.now();
             
-            function measure() {
+            function continuousSample() {
+                if (!autoTesting) {
+                    requestAnimationFrame(continuousSample);
+                    return;
+                }
+                
+                const now = performance.now();
+                const delta = now - lastTime;
+                
+                if (delta > 0) {
+                    refreshRateSamples.push(delta);
+                    
+                    // Keep only last 120 samples for rolling average
+                    if (refreshRateSamples.length > 120) {
+                        refreshRateSamples.shift();
+                    }
+                    
+                    // Update refresh rate display every few samples
+                    if (refreshRateSamples.length >= 10) {
+                        const avgFrameTime = refreshRateSamples.reduce((a, b) => a + b) / refreshRateSamples.length;
+                        const refreshRate = Math.round(1000 / avgFrameTime);
+                        
+                        document.getElementById('refreshRate').textContent = refreshRate + 'Hz';
+                        updateQualityIndicator('refreshRateQuality', refreshRate);
+                        
+                        testResults.refreshRate = refreshRate;
+                        testResults.avgFrameTime = avgFrameTime;
+                    }
+                }
+                
+                lastTime = now;
+                requestAnimationFrame(continuousSample);
+            }
+            
+            requestAnimationFrame(continuousSample);
+        }
+        
+        function startContinuousFrameTiming() {
+            let lastTime = performance.now();
+            
+            function continuousFrameMeasure() {
+                if (!autoTesting) {
+                    requestAnimationFrame(continuousFrameMeasure);
+                    return;
+                }
+                
                 const now = performance.now();
                 const frameTime = now - lastTime;
                 
-                if (frameTime > 0 && frameTimes.length < 100) {
-                    frameTimes.push(frameTime);
-                    lastTime = now;
+                if (frameTime > 0) {
+                    frameTimingData.push(frameTime);
+                    
+                    // Keep only last 100 samples for rolling calculation
+                    if (frameTimingData.length > 100) {
+                        frameTimingData.shift();
+                    }
+                    
+                    // Update display when we have enough samples
+                    if (frameTimingData.length >= 10) {
+                        const avg = frameTimingData.reduce((a, b) => a + b) / frameTimingData.length;
+                        const variance = frameTimingData.reduce((sum, time) => sum + Math.pow(time - avg, 2), 0) / frameTimingData.length;
+                        const consistency = Math.max(0, 100 - (Math.sqrt(variance) * 5));
+                        
+                        document.getElementById('frameTime').textContent = avg.toFixed(2) + 'ms';
+                        document.getElementById('consistencyScore').textContent = consistency.toFixed(1) + '%';
+                        
+                        updateQualityIndicator('frameTimeQuality', avg);
+                        updateQualityIndicator('consistencyQuality', consistency);
+                        
+                        testResults.frameTime = avg;
+                        testResults.consistency = consistency;
+                    }
                 }
                 
-                if (frameTimes.length < 100) {
-                    requestAnimationFrame(measure);
-                } else {
-                    // Calculate consistency
-                    const avg = frameTimes.reduce((a, b) => a + b) / frameTimes.length;
-                    const variance = frameTimes.reduce((sum, time) => sum + Math.pow(time - avg, 2), 0) / frameTimes.length;
-                    const consistency = Math.max(0, 100 - (Math.sqrt(variance) * 10));
-                    
-                    document.getElementById('frameTime').textContent = avg.toFixed(2) + 'ms';
-                    document.getElementById('consistencyScore').textContent = consistency.toFixed(1) + '%';
-                    
-                    updateQualityIndicator('frameTimeQuality', avg);
-                    updateQualityIndicator('consistencyQuality', consistency);
-                    
-                    testResults.frameTime = avg;
-                    testResults.consistency = consistency;
-                }
+                lastTime = now;
+                requestAnimationFrame(continuousFrameMeasure);
             }
             
-            requestAnimationFrame(measure);
+            requestAnimationFrame(continuousFrameMeasure);
         }
         
-        function testInputLatency() {
-            // Simulate input latency testing
-            setTimeout(() => {
-                const latency = Math.random() * 15 + 5; // 5-20ms range
-                document.getElementById('inputLatency').textContent = latency.toFixed(1) + 'ms';
-                updateQualityIndicator('latencyQuality', latency);
-                testResults.inputLatency = latency;
-            }, 3000);
+        function startContinuousLatencyMeasurement() {
+            let clickTimes = [];
+            let responseTimes = [];
+            
+            // Measure system responsiveness continuously
+            function measureLatency() {
+                if (!autoTesting) {
+                    setTimeout(measureLatency, 1000);
+                    return;
+                }
+                
+                const startTime = performance.now();
+                
+                // Simulate input-to-display measurement using requestAnimationFrame timing
+                requestAnimationFrame(() => {
+                    const responseTime = performance.now() - startTime;
+                    const estimatedLatency = responseTime + (testResults.avgFrameTime || 16.67) / 2;
+                    
+                    inputLatencyHistory.push(estimatedLatency);
+                    
+                    // Keep only last 10 measurements
+                    if (inputLatencyHistory.length > 10) {
+                        inputLatencyHistory.shift();
+                    }
+                    
+                    // Calculate average latency
+                    const avgLatency = inputLatencyHistory.reduce((a, b) => a + b) / inputLatencyHistory.length;
+                    
+                    document.getElementById('inputLatency').textContent = avgLatency.toFixed(1) + 'ms';
+                    updateQualityIndicator('latencyQuality', avgLatency);
+                    testResults.inputLatency = avgLatency;
+                });
+                
+                // Repeat measurement every 2 seconds
+                setTimeout(measureLatency, 2000);
+            }
+            
+            measureLatency();
         }
         
         function updateQualityIndicator(elementId, value) {
@@ -534,21 +582,52 @@
             element.textContent = text;
         }
         
-        function displayResults() {
-            const resultsDiv = document.getElementById('detailedResults');
-            resultsDiv.innerHTML = `
-                <h3>Comprehensive Test Results</h3>
-                <p><strong>Display Refresh Rate:</strong> ${testResults.refreshRate || 'N/A'}Hz</p>
-                <p><strong>Average Frame Time:</strong> ${(testResults.avgFrameTime || 0).toFixed(2)}ms</p>
-                <p><strong>Frame Consistency:</strong> ${(testResults.consistency || 0).toFixed(1)}%</p>
-                <p><strong>Input Latency:</strong> ${(testResults.inputLatency || 0).toFixed(1)}ms</p>
-                <p><strong>Overall Performance Grade:</strong> ${calculateOverallGrade()}</p>
-                <br>
-                <h4>Recommendations:</h4>
-                <ul>
-                    ${generateRecommendations()}
-                </ul>
-            `;
+        function startContinuousResultsUpdate() {
+            function updateResults() {
+                if (!autoTesting) {
+                    setTimeout(updateResults, 1000);
+                    return;
+                }
+                
+                const resultsDiv = document.getElementById('detailedResults');
+                const runTime = Math.floor((performance.now() - testingStartTime) / 1000);
+                const totalSamples = refreshRateSamples.length + frameTimingData.length;
+                
+                resultsDiv.innerHTML = `
+                    <h3>🔄 Live Performance Analysis</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 15px 0;">
+                        <div style="background: rgba(52, 152, 219, 0.1); padding: 15px; border-radius: 10px;">
+                            <strong>🎯 Current Refresh Rate:</strong><br>
+                            ${testResults.refreshRate || 'Detecting...'}Hz
+                        </div>
+                        <div style="background: rgba(46, 204, 113, 0.1); padding: 15px; border-radius: 10px;">
+                            <strong>⚡ Frame Time:</strong><br>
+                            ${(testResults.avgFrameTime || 0).toFixed(2)}ms
+                        </div>
+                        <div style="background: rgba(155, 89, 182, 0.1); padding: 15px; border-radius: 10px;">
+                            <strong>📊 Consistency:</strong><br>
+                            ${(testResults.consistency || 0).toFixed(1)}%
+                        </div>
+                        <div style="background: rgba(230, 126, 34, 0.1); padding: 15px; border-radius: 10px;">
+                            <strong>🎮 Input Latency:</strong><br>
+                            ${(testResults.inputLatency || 0).toFixed(1)}ms
+                        </div>
+                    </div>
+                    <div style="background: rgba(0, 0, 0, 0.1); padding: 15px; border-radius: 10px; margin: 15px 0;">
+                        <strong>📈 Testing Statistics:</strong><br>
+                        Runtime: ${runTime}s | Samples: ${totalSamples} | Grade: ${calculateOverallGrade()}
+                    </div>
+                    <div style="background: rgba(52, 152, 219, 0.1); padding: 15px; border-radius: 10px;">
+                        <strong>💡 Live Recommendations:</strong><br>
+                        ${generateRecommendations()}
+                    </div>
+                `;
+                
+                // Update every 500ms for smooth real-time updates
+                setTimeout(updateResults, 500);
+            }
+            
+            updateResults();
         }
         
         function calculateOverallGrade() {
@@ -581,21 +660,33 @@
             const recs = [];
             
             if (testResults.refreshRate < 75) {
-                recs.push('<li>Consider upgrading to a higher refresh rate monitor (144Hz or higher) for smoother performance</li>');
+                recs.push('🔄 Consider upgrading to 144Hz+ for smoother performance<br>');
             }
             
             if (testResults.consistency < 80) {
-                recs.push('<li>Check for background processes that might be affecting frame consistency</li>');
-                recs.push('<li>Update graphics drivers for better frame pacing</li>');
+                recs.push('⚙️ Check background processes affecting frame consistency<br>');
+                recs.push('🔧 Update graphics drivers for better frame pacing<br>');
             }
             
             if (testResults.inputLatency > 15) {
-                recs.push('<li>Enable Game Mode on your monitor to reduce input latency</li>');
-                recs.push('<li>Use a wired connection and close unnecessary applications</li>');
+                recs.push('🎮 Enable Game Mode to reduce input latency<br>');
+                recs.push('🔌 Use wired connections for better responsiveness<br>');
+            }
+            
+            if (testResults.refreshRate >= 144) {
+                recs.push('⚡ Excellent refresh rate for competitive gaming<br>');
+            }
+            
+            if (testResults.consistency >= 90) {
+                recs.push('📊 Outstanding frame consistency detected<br>');
+            }
+            
+            if (testResults.inputLatency <= 10) {
+                recs.push('🏆 Professional-grade input latency achieved<br>');
             }
             
             if (recs.length === 0) {
-                recs.push('<li>Excellent performance! Your display is optimized for professional use</li>');
+                recs.push('✅ Perfect performance! Your display is optimized<br>');
             }
             
             return recs.join('');
@@ -606,8 +697,39 @@
             document.getElementById('animBtn').textContent = isAnimating ? 'Pause Animation' : 'Resume Animation';
         }
         
+        function toggleAutoTest() {
+            autoTesting = !autoTesting;
+            document.getElementById('autoTestBtn').textContent = autoTesting ? 'Auto-Testing: ON' : 'Auto-Testing: OFF';
+            
+            if (autoTesting) {
+                // Restart testing
+                testingStartTime = performance.now();
+            }
+        }
+        
         function resetTest() {
-            location.reload();
+            // Reset all data arrays
+            refreshRateSamples = [];
+            frameTimingData = [];
+            consistencyData = [];
+            inputLatencyHistory = [];
+            testResults = {};
+            testingStartTime = performance.now();
+            
+            // Reset displays
+            document.getElementById('refreshRate').textContent = 'Detecting...';
+            document.getElementById('frameTime').textContent = 'Calculating...';
+            document.getElementById('consistencyScore').textContent = 'Measuring...';
+            document.getElementById('inputLatency').textContent = 'Testing...';
+            
+            // Reset quality indicators
+            ['refreshRateQuality', 'frameTimeQuality', 'consistencyQuality', 'latencyQuality'].forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.className = 'quality-indicator';
+                    element.textContent = 'Analyzing';
+                }
+            });
         }
         
         function exportResults() {
@@ -666,10 +788,17 @@
             requestAnimationFrame(move);
         }
         
-        // Initialize animations
+        // Initialize everything when page loads
         window.addEventListener('load', () => {
+            // Start animations
             animateStandard();
             animateAdaptive();
+            
+            // Start real-time testing immediately
+            initializeRealTimeTesting();
+            
+            console.log('🚀 Real-time monitor testing started!');
+            console.log('📊 All metrics updating continuously');
         });
     </script>
 </body>
