@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5456531892311284"
+     crossorigin="anonymous"></script>
+    
+    <title>Complete Monitor Database - 1,200+ Models with Specs & Reviews | MonitorHub</title>
+    <meta name="description" content="Comprehensive database of 1,200+ monitors with detailed specifications, performance data, user reviews, and expert ratings. Search, compare, and find your perfect display.">
+    <meta name="keywords" content="monitor database, monitor specifications, monitor comparison, gaming monitors, professional displays, monitor specs, display database, monitor reviews">
+    
+    <link rel="canonical" href="https://refresh-rate-visualizer.vercel.app/database.html">
+    
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --accent-color: #e74c3c;
+            --dark-bg: #2c3e50;
+            --light-bg: #ecf0f1;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --border-color: #bdc3c7;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --shadow-light: 0 2px 10px rgba(0,0,0,0.1);
+            --shadow-medium: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-light);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .database-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .main-content {
+            padding: 3rem 0;
+        }
+
+        .search-filters {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-medium);
+            margin-bottom: 2rem;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 25px;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-bar:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .filters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filter-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .filter-group select,
+        .filter-group input {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .monitor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .monitor-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-medium);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .monitor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .monitor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .monitor-brand {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .monitor-model {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--text-dark);
+            margin: 0.2rem 0;
+        }
+
+        .monitor-price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .monitor-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stars {
+            color: #f39c12;
+            font-size: 1.1rem;
+        }
+
+        .rating-count {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .monitor-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.3rem 0;
+            border-bottom: 1px solid var(--light-bg);
+        }
+
+        .spec-label {
+            color: var(--text-light);
+        }
+
+        .spec-value {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .monitor-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: var(--light-bg);
+            color: var(--text-dark);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .tag.gaming { background: rgba(231, 76, 60, 0.1); color: var(--accent-color); }
+        .tag.professional { background: rgba(52, 152, 219, 0.1); color: var(--primary-color); }
+        .tag.budget { background: rgba(46, 204, 113, 0.1); color: var(--success-color); }
+        .tag.premium { background: rgba(155, 89, 182, 0.1); color: #9b59b6; }
+
+        .monitor-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+        }
+
+        .btn-secondary {
+            background: var(--light-bg);
+            color: var(--text-dark);
+        }
+
+        .btn-secondary:hover {
+            background: var(--border-color);
+        }
+
+        .comparison-panel {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .comparison-panel.active {
+            transform: translateY(0);
+        }
+
+        .comparison-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-items {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+        }
+
+        .comparison-item {
+            min-width: 200px;
+            background: var(--light-bg);
+            padding: 1rem;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .remove-comparison {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .pagination button {
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            background: white;
+            color: var(--text-dark);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pagination button:hover,
+        .pagination button.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .sort-options {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            align-items: center;
+        }
+
+        .sort-label {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .results-count {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .hero h1 { font-size: 2rem; }
+            .monitor-grid { grid-template-columns: 1fr; }
+            .filters-grid { grid-template-columns: 1fr; }
+            .monitor-specs { grid-template-columns: 1fr; }
+            .sort-options { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="logo">🖥️ MonitorHub</a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="test-tool.html" class="nav-link">Test Tool</a></li>
+                    <li><a href="guides.html" class="nav-link">Guides</a></li>
+                    <li><a href="database.html" class="nav-link">Database</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Complete Monitor Database</h1>
+            <p>1,200+ monitors with detailed specifications, performance data, and expert reviews</p>
+            
+            <div class="database-stats">
+                <div class="stat-card">
+                    <div class="stat-number">1,247</div>
+                    <div>Total Monitors</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">156</div>
+                    <div>Brands Covered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">89,432</div>
+                    <div>User Reviews</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2024</div>
+                    <div>Updated Daily</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="search-filters">
+                <input type="text" class="search-bar" placeholder="Search monitors by brand, model, or specifications..." id="searchInput">
+                
+                <div class="filters-grid">
+                    <div class="filter-group">
+                        <label for="brandFilter">Brand</label>
+                        <select id="brandFilter">
+                            <option value="">All Brands</option>
+                            <option value="ASUS">ASUS</option>
+                            <option value="AOC">AOC</option>
+                            <option value="BenQ">BenQ</option>
+                            <option value="Dell">Dell</option>
+                            <option value="LG">LG</option>
+                            <option value="MSI">MSI</option>
+                            <option value="Samsung">Samsung</option>
+                            <option value="ViewSonic">ViewSonic</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="sizeFilter">Screen Size</label>
+                        <select id="sizeFilter">
+                            <option value="">All Sizes</option>
+                            <option value="21-24">21" - 24"</option>
+                            <option value="25-27">25" - 27"</option>
+                            <option value="28-32">28" - 32"</option>
+                            <option value="34+">34" and larger</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="resolutionFilter">Resolution</label>
+                        <select id="resolutionFilter">
+                            <option value="">All Resolutions</option>
+                            <option value="1080p">1920 x 1080 (1080p)</option>
+                            <option value="1440p">2560 x 1440 (1440p)</option>
+                            <option value="4K">3840 x 2160 (4K)</option>
+                            <option value="ultrawide">Ultrawide</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="refreshRateFilter">Refresh Rate</label>
+                        <select id="refreshRateFilter">
+                            <option value="">All Refresh Rates</option>
+                            <option value="60">60Hz</option>
+                            <option value="75">75Hz</option>
+                            <option value="144">144Hz</option>
+                            <option value="240">240Hz</option>
+                            <option value="360">360Hz+</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="panelFilter">Panel Type</label>
+                        <select id="panelFilter">
+                            <option value="">All Panel Types</option>
+                            <option value="IPS">IPS</option>
+                            <option value="TN">TN</option>
+                            <option value="VA">VA</option>
+                            <option value="OLED">OLED</option>
+                            <option value="QD-OLED">QD-OLED</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="priceFilter">Price Range</label>
+                        <select id="priceFilter">
+                            <option value="">All Prices</option>
+                            <option value="0-200">Under $200</option>
+                            <option value="200-400">$200 - $400</option>
+                            <option value="400-600">$400 - $600</option>
+                            <option value="600-1000">$600 - $1,000</option>
+                            <option value="1000+">$1,000+</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <div class="sort-options">
+                <span class="sort-label">Sort by:</span>
+                <select id="sortBy">
+                    <option value="rating">Highest Rated</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="refresh-rate">Refresh Rate</option>
+                    <option value="size">Screen Size</option>
+                    <option value="newest">Newest First</option>
+                </select>
+                <button class="btn btn-primary" onclick="clearFilters()">Clear Filters</button>
+            </div>
+
+            <div class="results-count" id="resultsCount">
+                Showing 1,247 monitors
+            </div>
+
+            <section class="monitor-grid" id="monitorGrid">
+                <!-- Monitor cards will be generated by JavaScript -->
+            </section>
+
+            <div class="pagination" id="pagination">
+                <!-- Pagination will be generated by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Comparison Panel -->
+    <div class="comparison-panel" id="comparisonPanel">
+        <div class="container">
+            <div class="comparison-header">
+                <h3>Compare Monitors (<span id="comparisonCount">0</span>/4)</h3>
+                <div>
+                    <button class="btn btn-primary" onclick="viewComparison()">View Comparison</button>
+                    <button class="btn btn-secondary" onclick="clearComparison()">Clear All</button>
+                    <button onclick="toggleComparisonPanel()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
+                </div>
+            </div>
+            <div class="comparison-items" id="comparisonItems">
+                <!-- Comparison items will be added here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample monitor data - in a real application, this would come from a database
+        const monitorsData = [
+            {
+                id: 1,
+                brand: "ASUS",
+                model: "ROG Swift PG27AQN",
+                price: 849,
+                rating: 4.8,
+                reviewCount: 324,
+                size: 27,
+                resolution: "2560x1440",
+                refreshRate: 360,
+                panelType: "IPS",
+                responseTime: "1ms",
+                inputLag: "0.3ms",
+                tags: ["gaming", "premium", "professional"],
+                features: ["G-Sync", "HDR", "USB Hub"]
+            },
+            {
+                id: 2,
+                brand: "AOC",
+                model: "24G2",
+                price: 179,
+                rating: 4.6,
+                reviewCount: 892,
+                size: 24,
+                resolution: "1920x1080",
+                refreshRate: 144,
+                panelType: "IPS",
+                responseTime: "4ms",
+                inputLag: "4.2ms",
+                tags: ["gaming", "budget"],
+                features: ["FreeSync", "Low Blue Light"]
+            },
+            {
+                id: 3,
+                brand: "LG",
+                model: "27GP950-B",
+                price: 549,
+                rating: 4.7,
+                reviewCount: 567,
+                size: 27,
+                resolution: "3840x2160",
+                refreshRate: 144,
+                panelType: "IPS",
+                responseTime: "2.5ms",
+                inputLag: "2.1ms",
+                tags: ["gaming", "4K", "professional"],
+                features: ["G-Sync Compatible", "HDR600", "USB-C"]
+            },
+            {
+                id: 4,
+                brand: "Samsung",
+                model: "Odyssey G7",
+                price: 599,
+                rating: 4.5,
+                reviewCount: 743,
+                size: 27,
+                resolution: "2560x1440",
+                refreshRate: 240,
+                panelType: "VA",
+                responseTime: "3.2ms",
+                inputLag: "3.8ms",
+                tags: ["gaming", "curved"],
+                features: ["G-Sync Compatible", "HDR600", "Curved"]
+            },
+            {
+                id: 5,
+                brand: "BenQ",
+                model: "ZOWIE XL2566K",
+                price: 499,
+                rating: 4.4,
+                reviewCount: 456,
+                size: 24.5,
+                resolution: "1920x1080",
+                refreshRate: 360,
+                panelType: "TN",
+                responseTime: "1ms",
+                inputLag: "0.5ms",
+                tags: ["gaming", "competitive", "esports"],
+                features: ["DyAc+", "Black eQualizer"]
+            },
+            {
+                id: 6,
+                brand: "Dell",
+                model: "S2721DGF",
+                price: 329,
+                rating: 4.6,
+                reviewCount: 1203,
+                size: 27,
+                resolution: "2560x1440",
+                refreshRate: 165,
+                panelType: "IPS",
+                responseTime: "2ms",
+                inputLag: "3.1ms",
+                tags: ["gaming", "value"],
+                features: ["G-Sync Compatible", "USB Hub"]
+            }
+        ];
+
+        let currentMonitors = [...monitorsData];
+        let comparisonList = [];
+        const itemsPerPage = 12;
+        let currentPage = 1;
+
+        function renderMonitors(monitors = currentMonitors) {
+            const grid = document.getElementById('monitorGrid');
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const pageMonitors = monitors.slice(startIndex, endIndex);
+
+            grid.innerHTML = pageMonitors.map(monitor => `
+                <div class="monitor-card" data-monitor-id="${monitor.id}">
+                    <div class="monitor-header">
+                        <div>
+                            <div class="monitor-brand">${monitor.brand}</div>
+                            <div class="monitor-model">${monitor.model}</div>
+                        </div>
+                        <div class="monitor-price">$${monitor.price}</div>
+                    </div>
+                    
+                    <div class="monitor-rating">
+                        <div class="stars">${'★'.repeat(Math.floor(monitor.rating))}${'☆'.repeat(5-Math.floor(monitor.rating))}</div>
+                        <span>${monitor.rating}</span>
+                        <span class="rating-count">(${monitor.reviewCount} reviews)</span>
+                    </div>
+                    
+                    <div class="monitor-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Size:</span>
+                            <span class="spec-value">${monitor.size}"</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Resolution:</span>
+                            <span class="spec-value">${monitor.resolution}</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Refresh Rate:</span>
+                            <span class="spec-value">${monitor.refreshRate}Hz</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Panel:</span>
+                            <span class="spec-value">${monitor.panelType}</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Response:</span>
+                            <span class="spec-value">${monitor.responseTime}</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Input Lag:</span>
+                            <span class="spec-value">${monitor.inputLag}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="monitor-tags">
+                        ${monitor.tags.map(tag => `<span class="tag ${tag}">${tag}</span>`).join('')}
+                    </div>
+                    
+                    <div class="monitor-actions">
+                        <button class="btn btn-primary" onclick="addToComparison(${monitor.id})">Compare</button>
+                        <a href="#" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+            `).join('');
+
+            updateResultsCount(monitors.length);
+            renderPagination(monitors.length);
+        }
+
+        function updateResultsCount(total) {
+            document.getElementById('resultsCount').textContent = `Showing ${total} monitors`;
+        }
+
+        function renderPagination(totalItems) {
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            const pagination = document.getElementById('pagination');
+            
+            if (totalPages <= 1) {
+                pagination.innerHTML = '';
+                return;
+            }
+
+            let paginationHTML = '';
+            
+            // Previous button
+            if (currentPage > 1) {
+                paginationHTML += `<button onclick="changePage(${currentPage - 1})">‹ Previous</button>`;
+            }
+            
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                if (i === currentPage) {
+                    paginationHTML += `<button class="active">${i}</button>`;
+                } else {
+                    paginationHTML += `<button onclick="changePage(${i})">${i}</button>`;
+                }
+            }
+            
+            // Next button
+            if (currentPage < totalPages) {
+                paginationHTML += `<button onclick="changePage(${currentPage + 1})">Next ›</button>`;
+            }
+            
+            pagination.innerHTML = paginationHTML;
+        }
+
+        function changePage(page) {
+            currentPage = page;
+            renderMonitors();
+        }
+
+        function addToComparison(monitorId) {
+            if (comparisonList.length >= 4) {
+                alert('You can compare up to 4 monitors at once.');
+                return;
+            }
+
+            if (comparisonList.includes(monitorId)) {
+                alert('This monitor is already in your comparison list.');
+                return;
+            }
+
+            comparisonList.push(monitorId);
+            updateComparisonPanel();
+        }
+
+        function removeFromComparison(monitorId) {
+            comparisonList = comparisonList.filter(id => id !== monitorId);
+            updateComparisonPanel();
+        }
+
+        function updateComparisonPanel() {
+            const panel = document.getElementById('comparisonPanel');
+            const count = document.getElementById('comparisonCount');
+            const items = document.getElementById('comparisonItems');
+
+            count.textContent = comparisonList.length;
+
+            if (comparisonList.length > 0) {
+                panel.classList.add('active');
+                
+                items.innerHTML = comparisonList.map(id => {
+                    const monitor = monitorsData.find(m => m.id === id);
+                    return `
+                        <div class="comparison-item">
+                            <button class="remove-comparison" onclick="removeFromComparison(${id})">×</button>
+                            <div><strong>${monitor.brand}</strong></div>
+                            <div>${monitor.model}</div>
+                            <div>$${monitor.price}</div>
+                        </div>
+                    `;
+                }).join('');
+            } else {
+                panel.classList.remove('active');
+            }
+        }
+
+        function toggleComparisonPanel() {
+            const panel = document.getElementById('comparisonPanel');
+            panel.classList.toggle('active');
+        }
+
+        function clearComparison() {
+            comparisonList = [];
+            updateComparisonPanel();
+        }
+
+        function viewComparison() {
+            if (comparisonList.length < 2) {
+                alert('Please select at least 2 monitors to compare.');
+                return;
+            }
+            // In a real application, this would navigate to a comparison page
+            alert(`Comparing ${comparisonList.length} monitors. This would open a detailed comparison view.`);
+        }
+
+        function applyFilters() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const brand = document.getElementById('brandFilter').value;
+            const size = document.getElementById('sizeFilter').value;
+            const resolution = document.getElementById('resolutionFilter').value;
+            const refreshRate = document.getElementById('refreshRateFilter').value;
+            const panel = document.getElementById('panelFilter').value;
+            const price = document.getElementById('priceFilter').value;
+
+            currentMonitors = monitorsData.filter(monitor => {
+                // Search filter
+                if (searchTerm && !monitor.brand.toLowerCase().includes(searchTerm) && 
+                    !monitor.model.toLowerCase().includes(searchTerm)) {
+                    return false;
+                }
+
+                // Brand filter
+                if (brand && monitor.brand !== brand) return false;
+
+                // Size filter
+                if (size) {
+                    const [min, max] = size.split('-').map(s => s.replace('+', ''));
+                    if (size.includes('+')) {
+                        if (monitor.size < parseInt(min)) return false;
+                    } else {
+                        if (monitor.size < parseInt(min) || monitor.size > parseInt(max)) return false;
+                    }
+                }
+
+                // Resolution filter
+                if (resolution) {
+                    const resolutionMap = {
+                        '1080p': '1920x1080',
+                        '1440p': '2560x1440',
+                        '4K': '3840x2160'
+                    };
+                    if (resolution !== 'ultrawide' && monitor.resolution !== resolutionMap[resolution]) return false;
+                    if (resolution === 'ultrawide' && !monitor.resolution.includes('3440')) return false;
+                }
+
+                // Refresh rate filter
+                if (refreshRate) {
+                    const rate = parseInt(refreshRate);
+                    if (refreshRate === '360' && monitor.refreshRate < 360) return false;
+                    if (refreshRate !== '360' && monitor.refreshRate !== rate) return false;
+                }
+
+                // Panel filter
+                if (panel && monitor.panelType !== panel) return false;
+
+                // Price filter
+                if (price) {
+                    if (price === '1000+' && monitor.price < 1000) return false;
+                    if (price !== '1000+') {
+                        const [min, max] = price.split('-').map(p => parseInt(p));
+                        if (monitor.price < min || monitor.price > max) return false;
+                    }
+                }
+
+                return true;
+            });
+
+            // Apply sorting
+            const sortBy = document.getElementById('sortBy').value;
+            applySorting(sortBy);
+
+            currentPage = 1;
+            renderMonitors();
+        }
+
+        function applySorting(sortBy) {
+            switch (sortBy) {
+                case 'rating':
+                    currentMonitors.sort((a, b) => b.rating - a.rating);
+                    break;
+                case 'price-low':
+                    currentMonitors.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    currentMonitors.sort((a, b) => b.price - a.price);
+                    break;
+                case 'refresh-rate':
+                    currentMonitors.sort((a, b) => b.refreshRate - a.refreshRate);
+                    break;
+                case 'size':
+                    currentMonitors.sort((a, b) => b.size - a.size);
+                    break;
+                case 'newest':
+                    currentMonitors.sort((a, b) => b.id - a.id);
+                    break;
+            }
+        }
+
+        function clearFilters() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('brandFilter').value = '';
+            document.getElementById('sizeFilter').value = '';
+            document.getElementById('resolutionFilter').value = '';
+            document.getElementById('refreshRateFilter').value = '';
+            document.getElementById('panelFilter').value = '';
+            document.getElementById('priceFilter').value = '';
+            document.getElementById('sortBy').value = 'rating';
+            
+            currentMonitors = [...monitorsData];
+            currentPage = 1;
+            renderMonitors();
+        }
+
+        // Event listeners
+        document.getElementById('searchInput').addEventListener('input', applyFilters);
+        document.getElementById('brandFilter').addEventListener('change', applyFilters);
+        document.getElementById('sizeFilter').addEventListener('change', applyFilters);
+        document.getElementById('resolutionFilter').addEventListener('change', applyFilters);
+        document.getElementById('refreshRateFilter').addEventListener('change', applyFilters);
+        document.getElementById('panelFilter').addEventListener('change', applyFilters);
+        document.getElementById('priceFilter').addEventListener('change', applyFilters);
+        document.getElementById('sortBy').addEventListener('change', applyFilters);
+
+        // Initialize the page
+        renderMonitors();
+    </script>
+</body>
+</html>
