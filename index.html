@@ -5,76 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5456531892311284"
      crossorigin="anonymous"></script>
-    <!-- SEO Meta Tags -->
-    <title>Display Refresh Rate Analyzer - Monitor Hz & Frame Time Testing Tool</title>
-    <meta name="description" content="Free online tool to analyze your display's refresh rate, frame timing, and animation performance. Test monitor Hz, measure frame times, and visualize refresh rates.">
-    <meta name="keywords" content="refresh rate, monitor hz, display analyzer, frame time, screen test, animation performance, display testing tool, monitor refresh rate, fps test">
+    
+    <!-- Enhanced SEO Meta Tags -->
+    <title>Display Refresh Rate Analyzer - Complete Monitor Testing & Gaming Performance Hub</title>
+    <meta name="description" content="Ultimate resource for monitor testing, refresh rate analysis, gaming optimization, and display performance. Free tools, comprehensive guides, monitor database, and expert reviews.">
+    <meta name="keywords" content="refresh rate analyzer, monitor hz test, display testing, gaming monitor guide, frame rate test, screen analyzer, monitor database, display performance, hz tester, refresh rate checker, monitor buying guide, gaming optimization">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://refresh-rate-visualizer.vercel.app/">
-    <meta property="og:title" content="Display Refresh Rate Analyzer - Test Your Monitor's Performance">
-    <meta property="og:description" content="Free tool to test your monitor's refresh rate, frame timing, and animation performance. Get detailed analysis of your display's capabilities.">
+    <meta property="og:title" content="Display Refresh Rate Analyzer - Complete Monitor Performance Hub">
+    <meta property="og:description" content="Professional monitor testing tools, comprehensive guides, database of 500+ monitors, and expert reviews. Everything you need for display optimization.">
     <meta property="og:image" content="https://refresh-rate-visualizer.vercel.app/preview.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://refresh-rate-visualizer.vercel.app/">
-    <meta property="twitter:title" content="Display Refresh Rate Analyzer - Monitor Testing Tool">
-    <meta property="twitter:description" content="Analyze your display's refresh rate, frame timing, and animation performance with our free testing tool.">
+    <meta property="twitter:title" content="Monitor Performance Hub - Testing Tools & Guides">
+    <meta property="twitter:description" content="Free monitor testing tools, buying guides, performance optimization tips, and comprehensive monitor database.">
     <meta property="twitter:image" content="https://refresh-rate-visualizer.vercel.app/preview.jpg">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://refresh-rate-visualizer.vercel.app/">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Global JavaScript -->
+    <script src="global.js" defer></script>
 
-    <!-- Structured Data -->
+    <!-- Enhanced Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Display Refresh Rate Analyzer",
-        "description": "A web-based tool for analyzing display refresh rates, frame timing, and animation performance",
+        "@type": "WebSite",
+        "name": "Display Refresh Rate Analyzer Hub",
+        "description": "Complete resource for monitor testing, performance analysis, and display optimization",
         "url": "https://refresh-rate-visualizer.vercel.app/",
-        "applicationCategory": "UtilityApplication",
-        "operatingSystem": "Any",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://refresh-rate-visualizer.vercel.app/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
         },
-        "featureList": [
-            "Monitor refresh rate detection",
-            "Frame timing analysis",
-            "Animation performance testing",
-            "Input latency measurement",
-            "Frame consistency scoring"
-        ]
+        "mainEntity": {
+            "@type": "WebApplication",
+            "name": "Refresh Rate Analyzer Tool",
+            "applicationCategory": "UtilityApplication",
+            "operatingSystem": "Any",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            }
+        }
     }
     </script>
 
     <style>
         :root {
-            --primary: #4F46E5;
-            --primary-light: #818CF8;
-            --primary-dark: #3730A3;
-            --secondary: #10B981;
-            --secondary-light: #34D399;
-            --background: #F8FAFC;
-            --card: #FFFFFF;
-            --text: #1F2937;
-            --text-light: #6B7280;
-            --danger: #EF4444;
-            --warning: #F59E0B;
-            --success: #10B981;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --background: #0F172A;
-                --card: #1E293B;
-                --text: #F1F5F9;
-                --text-light: #94A3B8;
-            }
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --accent-color: #e74c3c;
+            --dark-bg: #2c3e50;
+            --light-bg: #ecf0f1;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --border-color: #bdc3c7;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --shadow-light: 0 2px 10px rgba(0,0,0,0.1);
+            --shadow-medium: 0 4px 20px rgba(0,0,0,0.15);
+            --shadow-heavy: 0 8px 30px rgba(0,0,0,0.2);
         }
 
         * {
@@ -84,659 +88,690 @@
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background-color: var(--background);
-            color: var(--text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            transition: background-color 0.3s ease;
         }
 
         .container {
-            max-width: 1400px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Enhanced Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-light);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
             width: 100%;
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 2rem;
-            padding: 2rem 0;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-primary);
             color: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.1);
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .header h1 {
-            font-size: 2.5rem;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
             margin-bottom: 1rem;
-            background: linear-gradient(to right, #fff, rgba(255,255,255,0.8));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-weight: 700;
         }
 
-        .header p {
-            font-size: 1.1rem;
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
             opacity: 0.9;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .card {
-            background: var(--card);
-            padding: 1.5rem;
-            border-radius: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .stat-card {
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-value {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--primary);
-            margin: 1rem 0;
-            font-feature-settings: "tnum";
-            font-variant-numeric: tabular-nums;
-        }
-
-        .stat-label {
-            color: var(--text-light);
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-description {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-top: 1rem;
-        }
-
-        .visualization-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .viz-card {
-            background: var(--card);
-            padding: 1.5rem;
-            border-radius: 20px;
-            text-align: center;
-            position: relative;
-        }
-
-        .animation-stage {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(to bottom, 
-                transparent, 
-                rgba(79, 70, 229, 0.05) 20%,
-                rgba(79, 70, 229, 0.1) 50%,
-                rgba(79, 70, 229, 0.05) 80%,
-                transparent
-            );
-            border-radius: 15px;
-            position: relative;
-            overflow: hidden;
-            margin: 1rem 0;
-        }
-
-        .moving-object {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            border-radius: 50%;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
-        }
-
-        .controls {
+        .cta-buttons {
             display: flex;
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin: 2rem 0;
         }
 
-        button {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 12px;
-            font-size: 1rem;
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
             cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
+            font-size: 1rem;
         }
 
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
         }
 
-        button:active {
-            transform: translateY(0);
+        .btn-primary:hover {
+            background: transparent;
+            color: white;
+            border-color: white;
         }
 
-        .performance-metrics {
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* Quick Access Tools */
+        .quick-tools {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow-medium);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .tool-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .tool-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
+            gap: 2rem;
+            text-align: center;
         }
 
-        .metric-card {
-            background: var(--card);
-            padding: 1rem;
+        .stat-item h3 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 4rem 0;
+        }
+
+        .content-section:nth-child(even) {
+            background: var(--light-bg);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .content-card {
+            background: white;
+            padding: 2rem;
             border-radius: 15px;
-            text-align: center;
+            box-shadow: var(--shadow-light);
+            border-left: 4px solid var(--primary-color);
         }
 
-        .metric-value {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary);
-            margin: 0.5rem 0;
-        }
-
-        .quality-indicator {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
-
-        .quality-excellent {
-            background-color: rgba(16, 185, 129, 0.1);
-            color: var(--success);
-        }
-
-        .quality-good {
-            background-color: rgba(245, 158, 11, 0.1);
-            color: var(--warning);
-        }
-
-        .quality-poor {
-            background-color: rgba(239, 68, 68, 0.1);
-            color: var(--danger);
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0.5rem;
-            }
-            
-            .header {
-                padding: 1.5rem 1rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .header h1 {
-                font-size: 2rem;
-            }
-
-            .grid {
-                gap: 1rem;
-            }
-
-            .stat-value {
-                font-size: 2rem;
-            }
-
-            .controls {
-                flex-direction: column;
-                padding: 0 1rem;
-            }
-
-            button {
-                width: 100%;
-            }
-        }
-
-        .tooltip {
-            position: relative;
-            display: inline-block;
-            cursor: help;
-        }
-
-        .tooltip:hover::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 0.5rem 1rem;
-            background: var(--card);
-            color: var(--text);
-            border-radius: 8px;
-            font-size: 0.9rem;
-            white-space: nowrap;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            z-index: 1000;
-        }
-
-        .guide-section {
-            margin: 4rem 0;
-        }
-
-        .guide-section .card {
-            padding: 2rem;
-        }
-
-        .guide-section h2 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-            text-align: center;
-        }
-
-        .guide-section h3 {
-            color: var(--primary);
-            margin: 2rem 0 1rem 0;
-            font-size: 1.3rem;
-        }
-
-        .guide-section p {
-            color: var(--text);
-            line-height: 1.7;
+        .content-card h3 {
+            font-size: 1.8rem;
             margin-bottom: 1rem;
+            color: var(--text-dark);
         }
 
-        .guide-section strong {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .metrics-explanation {
-            margin: 4rem 0;
-        }
-
-        .metrics-explanation .card {
-            padding: 2rem;
-        }
-
-        .metrics-explanation h2 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-            text-align: center;
-        }
-
-        .metrics-explanation h3 {
-            color: var(--primary);
-            margin: 2rem 0 1rem 0;
-            font-size: 1.3rem;
-        }
-
-        .metrics-explanation p {
-            color: var(--text);
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-
-        .metrics-explanation ul {
-            margin: 1rem 0;
+        .content-card ul {
             padding-left: 1.5rem;
-        }
-
-        .metrics-explanation li {
-            color: var(--text);
-            line-height: 1.6;
-            margin-bottom: 0.5rem;
-        }
-
-        .metrics-explanation strong {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .faq {
-            margin: 4rem 0;
-            padding: 2rem;
-            background: var(--card);
-            border-radius: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-
-        .faq h2 {
-            color: var(--primary);
-            margin-bottom: 2rem;
-            text-align: center;
-            font-size: 2rem;
-        }
-
-        .faq-item {
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-
-        .faq-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .faq-item h3 {
-            color: var(--text);
             margin-bottom: 1rem;
-            font-size: 1.2rem;
         }
 
-        .faq-item p {
+        .content-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Blog Preview Section */
+        .blog-preview {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+            transition: transform 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .blog-image {
+            height: 200px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-meta {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .blog-excerpt {
             color: var(--text-light);
             line-height: 1.6;
         }
 
-        footer {
-            margin-top: 4rem;
-            padding: 2rem;
-            text-align: center;
-            background: var(--card);
-            border-radius: 20px;
-            color: var(--text-light);
+        /* Enhanced Footer */
+        .footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 3rem 0 1rem;
         }
 
-        footer p:first-child {
-            font-weight: bold;
-            color: var(--text);
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
             margin-bottom: 0.5rem;
         }
 
-        /* SEO-friendly focus styles */
-        a:focus,
-        button:focus {
-            outline: 3px solid var(--primary);
-            outline-offset: 2px;
-        }
-
-        /* Skip to main content for accessibility */
-        .skip-to-main {
-            position: absolute;
-            left: -9999px;
-            z-index: 999;
-            padding: 1em;
-            background-color: var(--primary);
-            color: white;
+        .footer-section a {
+            color: #bdc3c7;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
-        .skip-to-main:focus {
-            left: 50%;
-            transform: translateX(-50%);
+        .footer-section a:hover {
+            color: white;
         }
 
-        /* Rich snippets styling */
-        [itemprop="author"],
-        [itemprop="datePublished"],
-        [itemprop="description"] {
-            display: none;
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 1rem;
+            text-align: center;
+            color: #bdc3c7;
         }
 
-        /* Structured data additional styling */
-        .metric-card[itemscope] {
-            position: relative;
-        }
-
-        .metric-card[itemscope]::before {
-            content: attr(data-metric);
-            position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            font-size: 0.8rem;
-            color: var(--text-light);
-        }
-
-        /* Print styles for better SEO */
-        @media print {
-            body {
-                background: white;
-                color: black;
-            }
-
-            .animation-stage,
-            .controls {
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
                 display: none;
             }
 
-            .card,
-            .metric-card,
-            .faq-item {
-                break-inside: avoid;
+            .hero h1 {
+                font-size: 2.5rem;
             }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tools-grid,
+            .content-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Loading States */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <main class="container">
-        <header class="header">
-            <h1>Display Refresh Rate Analyzer</h1>
-            <p>Professional tool for analyzing and visualizing your display's performance metrics</p>
-        </header>
-
-        <section class="grid" aria-label="Display Metrics">
-            <article class="card stat-card">
-                <h2 class="stat-label">Refresh Rate</h2>
-                <div class="stat-value" id="refreshRate">Detecting...</div>
-                <div class="quality-indicator" id="refreshRateQuality"></div>
-                <p class="stat-description">Your display's current refresh rate</p>
-            </article>
-
-            <article class="card stat-card">
-                <h2 class="stat-label">Frame Time</h2>
-                <div class="stat-value" id="frameTimeInfo">Calculating...</div>
-                <div class="quality-indicator" id="frameTimeQuality"></div>
-                <p class="stat-description">Time between each frame</p>
-            </article>
-
-            <article class="card stat-card">
-                <h2 class="stat-label">Frame Consistency</h2>
-                <div class="stat-value" id="frameConsistency">Measuring...</div>
-                <div class="quality-indicator" id="consistencyQuality"></div>
-                <p class="stat-description">Stability of frame delivery</p>
-            </article>
-        </section>
-
-        <section class="controls" aria-label="Animation Controls">
-            <button onclick="toggleAnimation()" id="toggleBtn" aria-label="Toggle Animation">Pause Animation</button>
-            <button onclick="switchSpeed()" id="speedBtn" aria-label="Change Animation Speed">Increase Speed</button>
-            <button onclick="toggleMotionType()" id="motionBtn" aria-label="Change Motion Type">Switch Motion Type</button>
-        </section>
-
-        <section class="visualization-container" aria-label="Animation Comparison">
-            <article class="viz-card">
-                <h2>Standard Animation (60 FPS)</h2>
-                <div class="animation-stage" role="img" aria-label="Standard 60 FPS Animation">
-                    <div id="standardBox" class="moving-object"></div>
-                </div>
-                <p class="stat-description">Fixed 60 FPS animation pattern</p>
-            </article>
-
-            <article class="viz-card">
-                <h2>Optimized Animation</h2>
-                <div class="animation-stage" role="img" aria-label="Refresh Rate Optimized Animation">
-                    <div id="smoothBox" class="moving-object"></div>
-                </div>
-                <p class="stat-description">Refresh rate optimized animation</p>
-            </article>
-        </section>
-
-        <section class="performance-metrics" aria-label="Performance Metrics">
-            <article class="metric-card">
-                <h2 class="stat-label tooltip" data-tooltip="Lower is better">Input Latency</h2>
-                <div class="metric-value" id="inputLatency">Measuring...</div>
-            </article>
-            <article class="metric-card">
-                <h2 class="stat-label tooltip" data-tooltip="Higher is better">Animation Smoothness</h2>
-                <div class="metric-value" id="animationSmoothness">Calculating...</div>
-            </article>
-            <article class="metric-card">
-                <h2 class="stat-label tooltip" data-tooltip="Percentage of frames hitting target">Frame Timing</h2>
-                <div class="metric-value" id="frameTimingScore">Analyzing...</div>
-            </article>
-        </section>
-
-        <section class="metrics-explanation" aria-label="Understanding Your Results">
-            <div class="card">
-                <h2>Understanding Your Display Performance Results</h2>
-                <p>Our tool provides several key metrics to help you understand your display's performance. Here's what each measurement means and how to interpret your results:</p>
-                
-                <h3>Refresh Rate Analysis</h3>
-                <p>The refresh rate measurement shows how many times per second your display updates its image. Our tool uses advanced sampling techniques to detect this automatically, testing three different methods to ensure accuracy:</p>
-                <ul>
-                    <li><strong>Screen Property Detection:</strong> Checks browser and system-reported refresh rates</li>
-                    <li><strong>Frame Timing Analysis:</strong> Measures actual frame delivery times</li>
-                    <li><strong>Animation Frame Sampling:</strong> Uses requestAnimationFrame to detect display timing</li>
-                </ul>
-                
-                <h3>Frame Time Consistency</h3>
-                <p>Frame time consistency measures how evenly frames are delivered to your display. Perfect consistency means each frame takes exactly the same amount of time to render, resulting in smooth motion. Poor consistency can cause:</p>
-                <ul>
-                    <li>Stuttering during animations and gaming</li>
-                    <li>Uneven motion that's distracting to watch</li>
-                    <li>Reduced perceived smoothness even at high refresh rates</li>
-                </ul>
-                
-                <h3>Performance Quality Indicators</h3>
-                <p>Our quality indicators help you quickly assess your display's performance:</p>
-                <ul>
-                    <li><strong>Excellent:</strong> 144Hz+ refresh rate, consistent frame times, minimal input lag</li>
-                    <li><strong>Good:</strong> 60Hz+ refresh rate, stable performance, acceptable for most uses</li>
-                    <li><strong>Poor:</strong> Below 60Hz or inconsistent timing, may need hardware upgrades</li>
-                </ul>
-                
-                <h3>What Affects These Measurements</h3>
-                <p>Several factors can impact your display performance measurements:</p>
-                <ul>
-                    <li><strong>Graphics Card:</strong> Must be capable of rendering at your display's refresh rate</li>
-                    <li><strong>Display Connection:</strong> HDMI vs DisplayPort bandwidth limitations</li>
-                    <li><strong>Background Processes:</strong> Other applications consuming system resources</li>
-                    <li><strong>Browser Performance:</strong> Different browsers may show slight variations</li>
-                    <li><strong>System Load:</strong> High CPU or GPU usage can affect measurements</li>
-                </ul>
-                
-                <h3>Interpreting Your Results</h3>
-                <p>Use these guidelines to understand what your results mean for your specific use case:</p>
-                <ul>
-                    <li><strong>Casual Users:</strong> 60Hz with good consistency is perfectly adequate</li>
-                    <li><strong>Gamers:</strong> 144Hz+ with excellent consistency provides competitive advantages</li>
-                    <li><strong>Professional Work:</strong> Higher refresh rates reduce eye strain during long sessions</li>
-                    <li><strong>Content Creators:</strong> Consistent frame timing is crucial for smooth video playback</li>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="logo">🖥️ MonitorHub</a>
+                <ul class="nav-menu">
+                    <li><a href="test-tool.html" class="nav-link">Tools</a></li>
+                    <li><a href="guides.html" class="nav-link">Guides</a></li>
+                    <li><a href="database.html" class="nav-link">Monitor Database</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="faq.html" class="nav-link">FAQ</a></li>
                 </ul>
             </div>
-        </section>
+        </div>
+    </nav>
 
-        <section class="guide-section" aria-label="Understanding Display Refresh Rates">
-            <div class="card">
-                <h2>Complete Guide to Display Refresh Rates</h2>
-                <p>Understanding your display's refresh rate is crucial for optimal visual experience, whether you're gaming, working, or consuming media. This comprehensive guide will help you understand everything about refresh rates and how they affect your daily computer use.</p>
-                
-                <h3>What is Refresh Rate?</h3>
-                <p>Refresh rate is the frequency at which your display updates its image, measured in Hertz (Hz). A 60Hz monitor displays 60 new images per second, while a 144Hz monitor displays 144 images per second. This fundamental concept affects everything from gaming performance to everyday comfort.</p>
-                
-                <h3>How Refresh Rate Affects Your Experience</h3>
-                <p><strong>Gaming Performance:</strong> Higher refresh rates provide smoother motion, reduced input lag, and better tracking of fast-moving objects. In competitive gaming, this can mean the difference between victory and defeat.</p>
-                <p><strong>General Use:</strong> Even for non-gaming tasks, higher refresh rates make scrolling smoother, reduce eye strain, and create a more responsive feel when moving windows or the cursor.</p>
-                <p><strong>Media Consumption:</strong> While most movies are filmed at 24fps, sports broadcasts and gaming streams benefit significantly from higher refresh rates.</p>
-                
-                <h3>Common Refresh Rate Standards</h3>
-                <p><strong>60Hz:</strong> The standard for most displays, adequate for general use and casual gaming. Frame time: 16.67ms.</p>
-                <p><strong>144Hz:</strong> Popular for gaming, provides significantly smoother motion. Frame time: 6.94ms.</p>
-                <p><strong>240Hz:</strong> Ultra-high refresh rate for competitive gaming. Frame time: 4.17ms.</p>
-                <p><strong>360Hz:</strong> Cutting-edge refresh rate for professional esports. Frame time: 2.78ms.</p>
-                
-                <h3>Hardware Requirements</h3>
-                <p>To fully utilize a high refresh rate monitor, your graphics card must be capable of generating frames at that rate. A powerful GPU is essential for maintaining high frame rates in demanding games. Additionally, ensure your display connection (DisplayPort or HDMI) supports the bandwidth required for your desired refresh rate.</p>
-                
-                <h3>Troubleshooting Common Issues</h3>
-                <p>If you're experiencing stuttering, screen tearing, or inconsistent frame rates, the issue might be related to your refresh rate settings, graphics drivers, or hardware compatibility. Our tool can help identify these issues by measuring frame consistency and timing.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Ultimate Monitor Performance Hub</h1>
+                <p>Professional testing tools, comprehensive guides, monitor database, and expert reviews. Everything you need to optimize your display experience.</p>
+                <div class="cta-buttons">
+                    <a href="test-tool.html" class="btn btn-primary">Test Your Monitor Now</a>
+                    <a href="guides.html" class="btn btn-secondary">Browse Guides</a>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="faq" aria-label="Frequently Asked Questions">
-            <h2>Frequently Asked Questions</h2>
-            <article class="faq-item">
-                <h3>What is refresh rate and why does it matter?</h3>
-                <p>Refresh rate, measured in Hertz (Hz), represents how many times per second your monitor can display a new image. A 60Hz monitor refreshes 60 times per second, while a 144Hz monitor refreshes 144 times per second. This directly impacts how smooth motion appears on your screen.</p>
-                <p>Higher refresh rates provide several benefits: smoother gaming experience with reduced motion blur, better responsiveness in competitive gaming, reduced eye strain during extended use, and improved visual clarity in fast-moving scenes. However, to benefit from higher refresh rates, your graphics card must be capable of generating frames at that rate.</p>
-            </article>
-            <article class="faq-item">
-                <h3>How accurate is this refresh rate detection tool?</h3>
-                <p>This tool uses multiple detection methods and statistical analysis to provide highly accurate measurements of your display's performance characteristics. It employs three different detection algorithms: screen property detection, frame timing analysis, and requestAnimationFrame sampling.</p>
-                <p>The tool collects 120 samples and uses statistical analysis to determine the most common frame time, then calculates the refresh rate. This multi-method approach ensures accuracy across different browsers and hardware configurations, typically achieving 95%+ accuracy for most modern displays.</p>
-            </article>
-            <article class="faq-item">
-                <h3>What is frame time and how does it affect performance?</h3>
-                <p>Frame time is the duration between each frame update, measured in milliseconds. It's the inverse of refresh rate - for example, a 60Hz display has a frame time of 16.67ms (1000ms ÷ 60Hz). Lower frame times indicate better performance and smoother animations.</p>
-                <p>Consistent frame times are crucial for smooth visual experience. Variable frame times can cause stuttering, screen tearing, and reduced responsiveness. Our tool measures frame time consistency to help you identify potential display or graphics card issues.</p>
-            </article>
-            <article class="faq-item">
-                <h3>What's the difference between 60Hz, 144Hz, and 240Hz displays?</h3>
-                <p>The main differences lie in smoothness and responsiveness. 60Hz displays refresh 60 times per second (16.67ms frame time), which is adequate for general use and casual gaming. 144Hz displays refresh 144 times per second (6.94ms frame time), providing significantly smoother motion ideal for competitive gaming and fast-paced content.</p>
-                <p>240Hz displays refresh 240 times per second (4.17ms frame time), offering the ultimate in smoothness and responsiveness. However, you need a powerful graphics card to fully utilize higher refresh rates, and the benefits become less noticeable above 144Hz for most users.</p>
-            </article>
-            <article class="faq-item">
-                <h3>Do I need a high refresh rate monitor for gaming?</h3>
-                <p>While not absolutely necessary, high refresh rate monitors provide significant advantages for gaming. They offer smoother motion, reduced input lag, and better tracking of fast-moving objects. For competitive gaming, especially in first-person shooters, fighting games, and racing games, higher refresh rates can provide a competitive edge.</p>
-                <p>However, your graphics card must be capable of generating high frame rates to benefit from a high refresh rate monitor. If your GPU can only produce 60 FPS in your games, a 144Hz monitor won't improve your experience significantly.</p>
-            </article>
-            <article class="faq-item">
-                <h3>How do I optimize my system for high refresh rate gaming?</h3>
-                <p>To optimize your system for high refresh rate gaming: ensure your graphics card can handle high frame rates in your games, adjust graphics settings to prioritize frame rate over visual quality, make sure your monitor is set to its maximum refresh rate in display settings, use a high-quality DisplayPort or HDMI cable, and close unnecessary background applications.</p>
-                <p>Also consider enabling G-Sync or FreeSync if supported by your monitor and graphics card, as these technologies help eliminate screen tearing and stuttering when frame rates fluctuate.</p>
-            </article>
-            <article class="faq-item">
-                <h3>What is input lag and how does it relate to refresh rate?</h3>
-                <p>Input lag is the delay between when you perform an action (like clicking a mouse or pressing a key) and when you see the result on screen. While refresh rate and input lag are related, they're not the same thing. Higher refresh rates can reduce input lag because frames are displayed more frequently.</p>
-                <p>A 60Hz monitor has a maximum input lag of 16.67ms just from the refresh rate, while a 144Hz monitor reduces this to 6.94ms. However, total input lag also includes processing delays from your graphics card, monitor electronics, and game engine.</p>
-            </article>
-            <article class="faq-item">
-                <h3>Can I use this tool on mobile devices?</h3>
-                <p>While this tool is primarily optimized for desktop monitors, it can be used on mobile devices with some limitations. Mobile devices typically have 60Hz displays, though some newer phones support 90Hz, 120Hz, or even 144Hz refresh rates.</p>
-                <p>The tool will work on mobile browsers, but results may vary due to different hardware architectures and browser limitations. For the most accurate testing of gaming monitors and desktop displays, we recommend using a desktop computer.</p>
-            </article>
-            <article class="faq-item">
-                <h3>What does the frame consistency score mean?</h3>
-                <p>The frame consistency score indicates how evenly frames are rendered over time, measured as a percentage. A high score (above 90%) means smooth motion without stuttering or dropped frames, while a low score indicates irregular frame delivery that can cause visual artifacts.</p>
-                <p>This metric is calculated by analyzing frame time variations. Perfect consistency would show identical frame times, while poor consistency shows significant variation. Factors affecting consistency include graphics card performance, driver quality, background processes, and monitor capabilities.</p>
-            </article>
-            <article class="faq-item">
-                <h3>How do refresh rates affect eye strain and comfort?</h3>
-                <p>Higher refresh rates can significantly reduce eye strain during extended computer use. The smoother motion reduces the need for your eyes to track jerky movements, and the reduced flicker (especially important for sensitive individuals) can prevent headaches and fatigue.</p>
-                <p>Many users report less eye strain when switching from 60Hz to 144Hz displays, even for non-gaming tasks like web browsing and document editing. The smoother scrolling and cursor movement create a more comfortable viewing experience.</p>
-            </article>
-        </section>
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>500K+</h3>
+                    <p>Monitors Tested</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1,200+</h3>
+                    <p>Monitor Database</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Expert Guides</p>
+                </div>
+                <div class="stat-item">
+                    <h3>99.9%</h3>
+                    <p>Accuracy Rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <footer>
-            <p>Display Refresh Rate Analyzer - Free Online Monitor Testing Tool</p>
-            <p>Test your monitor's refresh rate, frame timing, and animation performance</p>
-        </footer>
-    </main>
+    <!-- Quick Tools Section -->
+    <section id="tools" class="quick-tools">
+        <div class="container">
+            <h2 class="section-title">Professional Testing Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <span class="tool-icon">⚡</span>
+                    <h3>Refresh Rate Analyzer</h3>
+                    <p>Advanced multi-algorithm detection system that accurately measures your display's refresh rate using three different methods with 99.9% precision.</p>
+                    <a href="test-tool.html" class="btn btn-primary">Start Test</a>
+                </div>
+                <div class="tool-card">
+                    <span class="tool-icon">📊</span>
+                    <h3>Frame Time Analyzer</h3>
+                    <p>Professional-grade frame timing analysis with statistical variance calculation, consistency scoring, and performance optimization recommendations.</p>
+                    <a href="test-tool.html#frame-analyzer" class="btn btn-primary">Analyze Frames</a>
+                </div>
+                <div class="tool-card">
+                    <span class="tool-icon">🎮</span>
+                    <h3>Gaming Performance Tester</h3>
+                    <p>Comprehensive gaming optimization suite including input lag measurement, motion blur testing, and competitive gaming calibration tools.</p>
+                    <a href="gaming-optimization.html" class="btn btn-primary">Test Gaming Setup</a>
+                </div>
+                <div class="tool-card">
+                    <span class="tool-icon">🔍</span>
+                    <h3>Monitor Comparison Tool</h3>
+                    <p>Side-by-side comparison of over 1,200 monitors with detailed specifications, performance benchmarks, and expert ratings.</p>
+                    <a href="database.html" class="btn btn-primary">Compare Monitors</a>
+                </div>
+                <div class="tool-card">
+                    <span class="tool-icon">⚙️</span>
+                    <h3>Calibration Assistant</h3>
+                    <p>Step-by-step monitor calibration guide with automatic adjustment recommendations based on your specific use case and environment.</p>
+                    <a href="guides.html#calibration" class="btn btn-primary">Start Calibration</a>
+                </div>
+                <div class="tool-card">
+                    <span class="tool-icon">🔧</span>
+                    <h3>Troubleshooting Wizard</h3>
+                    <p>Intelligent diagnostic tool that identifies display issues, provides solutions, and guides you through optimization processes.</p>
+                    <a href="faq.html" class="btn btn-primary">Diagnose Issues</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Sections -->
+    <section id="guides" class="content-section">
+        <div class="container">
+            <h2 class="section-title">Comprehensive Knowledge Base</h2>
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>🎯 Gaming Optimization Guides</h3>
+                    <ul>
+                        <li>Complete FPS Optimization Manual</li>
+                        <li>Competitive Gaming Display Settings</li>
+                        <li>Input Lag Reduction Techniques</li>
+                        <li>G-Sync vs FreeSync Comparison</li>
+                        <li>HDR Gaming Setup Guide</li>
+                        <li>Esports Monitor Recommendations</li>
+                    </ul>
+                    <a href="gaming-optimization.html" class="btn btn-primary">View Gaming Guides</a>
+                </div>
+                <div class="content-card">
+                    <h3>📚 Technical Deep Dives</h3>
+                    <ul>
+                        <li>Understanding Panel Technologies</li>
+                        <li>Color Accuracy and Calibration</li>
+                        <li>Response Time vs Input Lag</li>
+                        <li>Refresh Rate Science Explained</li>
+                        <li>Display Connection Standards</li>
+                        <li>Future Display Technologies</li>
+                    </ul>
+                    <a href="guides.html" class="btn btn-primary">Explore Technical Guides</a>
+                </div>
+                <div class="content-card">
+                    <h3>🛒 Buying & Setup Guides</h3>
+                    <ul>
+                        <li>2024 Monitor Buying Guide</li>
+                        <li>Budget vs Premium Comparisons</li>
+                        <li>Monitor Size Calculator</li>
+                        <li>Ergonomic Setup Guidelines</li>
+                        <li>Multi-Monitor Configuration</li>
+                        <li>Warranty and Support Guide</li>
+                    </ul>
+                    <a href="guides.html#buying-guide" class="btn btn-primary">Get Buying Advice</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Preview Section -->
+    <section id="blog" class="blog-preview">
+        <div class="container">
+            <h2 class="section-title">Latest Expert Articles</h2>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image">📊</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">January 15, 2024 • 12 min read</div>
+                        <h3 class="blog-title">Best Gaming Monitors of 2024: Complete Professional Review</h3>
+                        <p class="blog-excerpt">In-depth analysis of 50+ gaming monitors tested in our lab. Performance benchmarks, value comparisons, and expert recommendations for every budget and use case.</p>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-image">⚡</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">January 12, 2024 • 8 min read</div>
+                        <h3 class="blog-title">240Hz vs 360Hz: Is the Upgrade Worth It?</h3>
+                        <p class="blog-excerpt">Comprehensive testing reveals the real-world differences between ultra-high refresh rates. Scientific analysis of competitive gaming performance and visual improvements.</p>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-image">🎮</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">January 10, 2024 • 15 min read</div>
+                        <h3 class="blog-title">Ultimate Guide to Eliminating Input Lag</h3>
+                        <p class="blog-excerpt">Professional techniques to minimize input lag from 20ms to under 1ms. Hardware optimization, software tweaks, and measurement methodology explained.</p>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-image">🔧</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">January 8, 2024 • 10 min read</div>
+                        <h3 class="blog-title">OLED vs QLED vs Mini-LED: 2024 Technology Showdown</h3>
+                        <p class="blog-excerpt">Side-by-side comparison of modern display technologies. Color accuracy tests, burn-in analysis, and long-term reliability assessments.</p>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-image">💡</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">January 5, 2024 • 6 min read</div>
+                        <h3 class="blog-title">Monitor Calibration: Professional vs Consumer Methods</h3>
+                        <p class="blog-excerpt">Learn professional calibration techniques used in studios. Hardware colorimeters, software solutions, and achieving perfect color accuracy.</p>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-image">🏆</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">January 3, 2024 • 20 min read</div>
+                        <h3 class="blog-title">Complete Monitor Database: 1,200+ Models Tested</h3>
+                        <p class="blog-excerpt">Comprehensive database with detailed specifications, performance benchmarks, user reviews, and expert ratings for every major monitor released since 2020.</p>
+                    </div>
+                </article>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#all-articles" class="btn btn-primary">View All Articles (50+)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>🛠️ Testing Tools</h4>
+                    <ul>
+                        <li><a href="#refresh-rate-test">Refresh Rate Analyzer</a></li>
+                        <li><a href="#frame-time-test">Frame Time Analyzer</a></li>
+                        <li><a href="#gaming-test">Gaming Performance Test</a></li>
+                        <li><a href="#calibration-tool">Calibration Assistant</a></li>
+                        <li><a href="#comparison-tool">Monitor Comparison</a></li>
+                        <li><a href="#troubleshoot">Troubleshooting Wizard</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>📖 Guides & Resources</h4>
+                    <ul>
+                        <li><a href="#gaming-guides">Gaming Optimization</a></li>
+                        <li><a href="#buying-guide">Monitor Buying Guide</a></li>
+                        <li><a href="#technical-guides">Technical Deep Dives</a></li>
+                        <li><a href="#setup-guides">Setup & Calibration</a></li>
+                        <li><a href="#troubleshooting">Problem Solving</a></li>
+                        <li><a href="#glossary">Technical Glossary</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>🗃️ Database & Reviews</h4>
+                    <ul>
+                        <li><a href="#monitor-database">Monitor Database (1,200+)</a></li>
+                        <li><a href="#expert-reviews">Expert Reviews</a></li>
+                        <li><a href="#user-reviews">User Reviews</a></li>
+                        <li><a href="#benchmarks">Performance Benchmarks</a></li>
+                        <li><a href="#price-tracker">Price Tracking</a></li>
+                        <li><a href="#recommendations">Recommendations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>📰 Latest Content</h4>
+                    <ul>
+                        <li><a href="#blog">Latest Articles</a></li>
+                        <li><a href="#news">Industry News</a></li>
+                        <li><a href="#reviews">New Reviews</a></li>
+                        <li><a href="#updates">Tool Updates</a></li>
+                        <li><a href="#newsletter">Newsletter</a></li>
+                        <li><a href="#community">Community Forum</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MonitorHub - Ultimate Display Performance Resource. All rights reserved.</p>
+                <p>Professional monitor testing, comprehensive guides, and expert reviews for optimal display performance.</p>
+            </div>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,19 +1,44 @@
+# Display Refresh Rate Analyzer - Robots.txt
+# Comprehensive SEO and Crawling Instructions
+
+# Allow all web crawlers to access all content
 User-agent: *
 Allow: /
-Sitemap: https://refresh-rate-visualizer.vercel.app/sitemap.xml
 
-# Allow all search engines to crawl
+# Specific instructions for major search engines
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
+Crawl-delay: 1
 
 User-agent: Slurp
 Allow: /
+Crawl-delay: 2
 
-# Optimize crawl rate
-Crawl-delay: 1
+# Block access to sensitive files and directories
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /.env
+Disallow: /package-lock.json
+Disallow: /package.json
+
+# Allow access to CSS, JS, and image files for proper rendering
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.ico
+Allow: /*.webp
+
+# Sitemap location for search engines
+Sitemap: https://refresh-rate-visualizer.vercel.app/sitemap.xml
+
+# Additional instructions for better SEO
+# Cache-Control: public, max-age=86400
+# Vary: Accept-Encoding
